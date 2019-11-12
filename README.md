@@ -1,7 +1,7 @@
-WebLinc Shipping Message
+Workarea Shipping Message
 ================================================================================
 
-Discount messaging plugin for the WebLinc platform.
+Discount messaging plugin for the Workarea platform.
 
 Out of the box this plugin adds messaging to the cart to let a customer know how
 close they are to receiving a free shipping discount.
@@ -30,14 +30,11 @@ If you think your new discount message might be a useful addition to this plugin
 please include a member of the plugin team on your pull request or open a PR against
 this plugin.
 
-WebLinc Platform Documentation
+Workarea Platform Documentation
 --------------------------------------------------------------------------------
 
-See [http://developer.weblinc.com](http://developer.weblinc.com) for Workarea platform documentation.
+See [https://developer.workarea.com](https://developer.workarea.com) for Workarea platform documentation.
 
 Copyright & Licensing
 --------------------------------------------------------------------------------
-
-Copyright WebLinc 2015. All rights reserved.
-
-For licensing, contact sales@weblinc.com.
+Workarea Commerce Platform is released under the [Business Software License](https://github.com/workarea-commerce/workarea/blob/master/LICENSE)
