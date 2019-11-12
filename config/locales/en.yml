@@ -1,0 +1,23 @@
+en:
+  workarea:
+    admin:
+      shared:
+        primary_nav:
+          discount_messaging: Discount Messaging
+      pricing_discounts:
+        cards:
+          message:
+            header: Message
+        fields:
+          message: Message Text
+          message_after: Message after
+          message_before: Message before
+          message_active: Message active?
+          message_applied: Message applied
+        message:
+          amount: Amount
+          disabled: Message disabled
+          enabled: Message enabled
+          invalid_discount_rules: Discount rules are not valid for discount messaging, message will not be displayed
+          message_amount_note: use {amount} to indicate where you'd like to place the amount, for example "{amount} away from free shipping!"
+          page_title: Message for %{name}

@@ -1,0 +1,49 @@
+module Workarea
+  decorate Storefront::CartViewModel, with: 'ShippingMessage' do
+    decorated do
+      include ActionView::Helpers::NumberHelper
+    end
+
+    def free_shipping_discount
+      discount ||= Workarea::Pricing::Discount.where(
+        order_total_operator: :greater_than,
+        amount: 0.to_m,
+        message_active: true
+      ).first
+
+      return nil unless discount.present? && discount.active? && discount.discount_message_valid?
+
+      discount ||= if shipping.present? && shipping.shipping_service.present?
+                  shipping.price_adjustments.detect do |discount|
+                    discount.shipping_service.id == shipping_service.id
+                  end
+                else
+                  discount
+                end
+    end
+
+    def amount_away_from_free_shipping
+      discount ||= free_shipping_discount
+
+      return nil unless discount.present?
+
+      discount.order_total - subtotal_price
+    end
+
+    def free_shipping_message
+      amount_delta ||= amount_away_from_free_shipping
+      return nil unless amount_delta.present?
+
+      if amount_delta > 0
+        free_shipping_discount.message.gsub(/{amount}/, number_to_currency(amount_delta))
+      else
+        free_shipping_discount.message_applied
+      end
+    end
+
+    private
+      def shipping
+        Workarea::Shipping.find_by_order(model.id)
+      end
+  end
+end

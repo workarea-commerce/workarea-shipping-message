@@ -1,0 +1,8 @@
+module Workarea
+  decorate Admin::PricingDiscountsController, with: :shipping_message do
+    def message
+      discount = Pricing::Discount.find(params[:id])
+      @discount = Admin::DiscountViewModel.wrap(discount, view_model_options)
+    end
+  end
+end

@@ -1,0 +1,11 @@
+module Workarea
+  decorate Pricing::Discount::Shipping, with: :discount_message do
+    decorated do
+      include Pricing::Discount::Message
+    end
+
+    def discount_message_valid?
+      order_total? && order_total_operator == :greater_than
+    end
+  end
+end
