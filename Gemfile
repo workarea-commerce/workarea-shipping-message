@@ -1,9 +1,8 @@
 source "https://rubygems.org"
-source "https://gems.weblinc.com"
 
 gemspec
 
-gem "workarea"
+gem 'workarea', git: 'https://github.com/workarea-commerce/workarea.git'
 
 group :test do
   gem "simplecov", require: false
