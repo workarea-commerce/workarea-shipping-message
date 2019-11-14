@@ -1,7 +1,7 @@
-- if model[:message_active].present?
+- if discount[:message_active].present?
   .grid__cell
     .card{ class: card_classes(:message, active) }
-      = link_to message_pricing_discount_path(model), class: 'card__header' do
+      = link_to message_pricing_discount_path(discount), class: 'card__header' do
         %span.card__header-text= t('workarea.admin.pricing_discounts.cards.message.header')
         = inline_svg 'workarea/admin/icons/attributes.svg', class: 'card__icon'
 
@@ -10,13 +10,13 @@
           %ul.list-reset
             %li
               %strong #{t('workarea.admin.pricing_discounts.fields.message_active')}:
-              = check_box_tag 'discount_message', 'message_active', model.message_active, disabled: true
+              = check_box_tag 'discount_message', 'message_active', discount.message_active, disabled: true
             %li
               %strong #{t('workarea.admin.pricing_discounts.fields.message')}:
-              = model.message
+              = discount.message
             %li
               %strong #{t('workarea.admin.pricing_discounts.fields.message_applied')}:
-              = model.message_applied
+              = discount.message_applied
 
-          = link_to message_pricing_discount_path(model), class: 'card__button' do
+          = link_to message_pricing_discount_path(discount), class: 'card__button' do
             %span.button.button--small= t('workarea.admin.pricing_discounts.cards.attributes.edit')
