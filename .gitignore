@@ -11,3 +11,4 @@ test/dummy/tmp/
 test/dummy/.sass-cache
 test/dummy/public/system
 .DS_Store
+.rubocop-http*
