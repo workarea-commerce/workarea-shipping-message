@@ -36,6 +36,7 @@ task :release do
   system "git push origin HEAD --follow-tags"
 
   system "gem build workarea-shipping_message.gemspec"
+  system "gem push workarea-shipping_message-#{Workarea::ShippingMessage::VERSION}.gem"
   system "gem push workarea-shipping_message-#{Workarea::ShippingMessage::VERSION}.gem --host #{host}"
   system "rm workarea-shipping_message-#{Workarea::ShippingMessage::VERSION}.gem"
 end
